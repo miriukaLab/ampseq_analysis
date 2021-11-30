@@ -1,7 +1,5 @@
 #!/bin/bash
 
-START_TIME=$(date +%s)
-
 echo ""
 printf "\033[1m\033[31m######################################## \n"
 printf "## AMPLICON SEQUENCING FULL PIPELINE \n"
@@ -11,44 +9,69 @@ echo ""
 date +"%T"
 echo ""
 
+## Importing functions
 source scripts/file_setup
 source scripts/qualityCheck
 source scripts/run_crispresso
+source parameters
 
-
+## Reading user directives (input/output directories)
 read -p "Provide full path to samples: " rawdir
 check_files "${rawdir}"
-
 
 read -p "Provide full path to output: " outdir
 check_dir "${outdir}"
 
 
-
-
-
-### Variables ###
+### Set variables ###
 RAW=${rawdir}
-WD=${PWD}
-SCPT=${WD}/scripts
 RES=${outdir}
-MQC=${RES}/multiqc
 FQC=${RES}/fastqc
 CPR=${RES}/crispresso
-#################
+#####################
 
 
 
-printf "\033[1m######################################## \n"
-printf "## QUALITY CHECK AND FILTERING \n"
-printf "########################################\033[0m \n"
-echo
+if [ "${quality_check^^}" == "YES" ]; then
+	
+	printf "\033[1m###################\n"
+	printf "## QUALITY CHECK \n"
+	printf "###################\033[0m \n"
+	echo
+	
+	qualifastqc "${RAW}" ${FQC}
 
-cd "${RAW}"
-printf "\nRunning FastQC\n"
-qualityCheck.sh ${FQC}
+else if [ "${quality_check^^}" == "ONLY" ]; then
+	
+	printf "\033[1m###################\n"
+	printf "## QUALITY CHECK \n"
+	printf "###################\033[0m \n"
+	echo
+	
+	qualifastqc "${RAW}" ${FQC}
+	
+	exit 1
+
+else
+	printf "NOTE: Initial quality check will not be performed\n"
+fi
 
 
-printf "\033[1m######################################## \n"
-printf "## QUALITY CHECK AND FILTERING \n"
-printf "########################################\033[0m \n"
+
+
+if [ "${run_mode^^}" == "BATCH" ]; then
+
+	printf "\033[1m######################################## \n"
+	printf "## RUN CRISPResso2 in batch mode \n"
+	printf "########################################\033[0m \n"
+	echo
+
+else 
+	printf "\033[1m######################################## \n"
+	printf "## RUN CRISPResso2 \n"
+	printf "########################################\033[0m \n"
+	echo
+
+fi
+
+

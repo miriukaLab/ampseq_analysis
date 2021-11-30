@@ -1,9 +1,9 @@
-
 #scripts/file_setup
 
 
 ##Check if files exists and their extension
 ## usage: provide input directory
+
 function check_files() {
     if [ -d "${1}" ]; then
         printf "${1} OK\n"
@@ -26,6 +26,7 @@ function check_files() {
 
 ##Check if destination exists, otherwise it creates it
 ## usage: provide directory to check
+
 function check_dir() {
 	if [ -d "${1}" ]; then
   		printf "${1} OK\n"

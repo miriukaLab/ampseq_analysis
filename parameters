@@ -1,0 +1,23 @@
+#general parameters
+quality_check="no"  # "yes" "only"
+run_mode="batch"  # "simple"
+#crispresso run
+fastqr1=""
+fastqr2=""
+amp_seq=""
+amp_name=""
+guide_seq=""
+quantif_wd_size=""
+expected_hdr_ampl_seq=""
+hdr_perfect_aln_thr=99.5
+hide_mut_out_wd_NHEJ=""
+min_id_score=60.0
+wd_around_sgrna=3
+#crispresso batch run
+batch_file="file.batch"
+
+
+
+
+
+

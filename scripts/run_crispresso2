@@ -1,14 +1,19 @@
-
 #scripts/run_crispresso2
 
 
 ##Run CRISPResso2 module on raw samples
 ## usage: check CRISPResso2 documentation
-function run_crispresso() {
-    for i in "${1}"/*.fastq.gz
-        do
-            fastqc "${i}" -o "${2}"
-    done
 
+function run_crispresso() {
+    CRISPResso  --amplicon_seq "${ampseq}" -p "${cores}" --suppress_report
+
+
+}
+
+
+
+function run_crispresso_batch() {
+    
+    CRISPRessoBatch --batch_settings "${batch_file}" --amplicon_seq "${ampseq}" -p "${cores}" --suppress_report
 
 }
