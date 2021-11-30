@@ -1,0 +1,36 @@
+
+#scripts/file_setup
+
+
+##Check if files exists and their extension
+## usage: provide input directory
+function check_files() {
+    if [ -d "${1}" ]; then
+        printf "${1} OK\n"
+        ### checking fastq extension --> ".gz"
+	    for file in "${1}"/*
+		    do
+			    if [[ "${file}" =~ \.gz$ ]]; then
+				    printf "${file} OK!\n"
+			    else
+				    gzip "${file}"
+			    fi
+		done
+    else
+        printf "Error: ${1} not found. Cannot continue.\n"
+        exit 1
+    fi
+}
+
+
+
+##Check if destination exists, otherwise it creates it
+## usage: provide directory to check
+function check_dir() {
+	if [ -d "${1}" ]; then
+  		printf "${1} OK\n"
+	else
+  		printf "${1} not found. Creating....\n"
+  		mkdir -p ${1}/{multiqc,fastqc,crispresso}
+	fi
+}

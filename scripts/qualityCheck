@@ -1,0 +1,29 @@
+
+#scripts/qualityCheck
+
+
+##FastQC quality check of raw sequencing reads
+## usage: provide input and output directory to function
+function qualifastqc() {
+    for i in "${1}"/*.fastq.gz
+        do
+            fastqc "${i}" -o "${2}"
+    done
+
+    # Producing merged report
+    multiqc -p -ip "${2}"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

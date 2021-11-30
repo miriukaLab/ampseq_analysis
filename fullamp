@@ -11,31 +11,21 @@ echo ""
 date +"%T"
 echo ""
 
+source scripts/file_setup
+source scripts/qualityCheck
+source scripts/run_crispresso
+
 
 read -p "Provide full path to samples: " rawdir
-if [ -d "${rawdir}" ]; then
-  printf "${rawdir} OK\n"
-  ### checking fastq extension --> ".gz"
-	for file in "${rawdir}"/*
-		do
-			if [[ "${file}" =~ \.gz$ ]]; then
-				printf "${file} OK!\n"
-			else
-				gzip "${file}"
-			fi
-		done
-else
-  printf "Error: ${rawdir} not found. Cannot continue.\n"
-  exit 1
-fi
+check_files "${rawdir}"
+
 
 read -p "Provide full path to output: " outdir
-if [ -d "${outdir}" ]; then
-  printf "${outdir} OK\n"
-else
-  printf "${outdir} not found. Creating....\n"
-  mkdir -p ${outdir}/{multiqc,fastqc,crispresso}
-fi
+check_dir "${outdir}"
+
+
+
+
 
 ### Variables ###
 RAW=${rawdir}
@@ -56,13 +46,7 @@ echo
 
 cd "${RAW}"
 printf "\nRunning FastQC\n"
-${SCPT}/./qualityCheck.sh ${FQC}
-cd ${FQC}
-multiqc -p -ip .
-mv multiqc_data ${MQC}/multiqc_data_fastqc
-mv multiqc_plots ${MQC}/multiqc_data_fastqc/
-mv multiqc_report.html ${MQC}/multiqc_report_fastqc.html
-
+qualityCheck.sh ${FQC}
 
 
 printf "\033[1m######################################## \n"
