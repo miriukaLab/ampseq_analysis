@@ -4,16 +4,62 @@
 ##Run CRISPResso2 module on raw samples
 ## usage: check CRISPResso2 documentation
 
-function run_crispresso() {
-    CRISPResso  --amplicon_seq "${ampseq}" -p "${cores}" --suppress_report
 
+# crispresso2 in batch mode
+function run_crispresso_batch() {
+    
+    CRISPRessoBatch --batch_settings "${BATCH_FILE}" -p "${CORES}"\
+                    --amplicon_seq "${AMP_SEQ}"\
+                    --amplicon_name "${AMP_NAME}"\
+                    --guide_seq "${GUIDE_SEQ}"\
+                    --quantification_window_size "${QUANTIF_WD_SIZE}"\
+                    --expected_hdr_amplicon_sequence "${EXPECTED_HDR_AMP_SEQ}"\
+                    --hdr_perfect_alignment_score "${HDR_PERFECT_ALN_THR}"\
+                    --hide_mutation_output_window_NHEJ "${HIDE_MUT_OUT_WD_NHEJ}"\
+                    --min_identity_score "${MIN_ID_SCORE}"\
+                    --window_around_sgrna "${WD_AROUND_SGRNA}"\
+                    --suppress_report "${SUP_REP}"\
+                    --output_folder "${1}"
 
 }
 
-
-
-function run_crispresso_batch() {
+# crispresso2 in normal mode
+function run_crispresso() {
+    if [ -n "${FASTQR2}" ]; then
+        
+        printf "Running CRISPResso2 for pair-end reads"
+        
+        CRISPResso --fastq_r1 "${FASTQR1}" --fastq_r2 "${FASTQR2}"\
+                --amplicon_seq "${AMP_SEQ}"\
+                --amplicon_name "${AMP_NAME}"\
+                --guide_seq "${GUIDE_SEQ}"\
+                --quantification_window_size "${QUANTIF_WD_SIZE}"\
+                --expected_hdr_amplicon_sequence "${EXPECTED_HDR_AMP_SEQ}"\
+                --hdr_perfect_alignment_score "${HDR_PERFECT_ALN_THR}"\
+                --hide_mutation_output_window_NHEJ "${HIDE_MUT_OUT_WD_NHEJ}"\
+                --min_identity_score "${MIN_ID_SCORE}"\
+                --window_around_sgrna "${WD_AROUND_SGRNA}"\
+                --suppress_report "${SUP_REP}"\
+                --name "${NAME}"\
+                --output_folder "${1}"
     
-    CRISPRessoBatch --batch_settings "${batch_file}" --amplicon_seq "${ampseq}" -p "${cores}" --suppress_report
+    else
 
+        printf "Running CRISPResso2 for single-end reads"
+
+        CRISPResso --fastq_r1 "${FASTQR1}"\
+                --amplicon_seq "${AMP_SEQ}"\
+                --amplicon_name "${AMP_NAME}"\
+                --guide_seq "${GUIDE_SEQ}"\
+                --quantification_window_size "${QUANTIF_WD_SIZE}"\
+                --expected_hdr_amplicon_sequence "${EXPECTED_HDR_AMP_SEQ}"\
+                --hdr_perfect_alignment_score "${HDR_PERFECT_ALN_THR}"\
+                --hide_mutation_output_window_NHEJ "${HIDE_MUT_OUT_WD_NHEJ}"\
+                --min_identity_score "${MIN_ID_SCORE}"\
+                --window_around_sgrna "${WD_AROUND_SGRNA}"\
+                --suppress_report "${SUP_REP}"\
+                --name "${NAME}"\
+                --output_folder "${1}"
+        
+    fi
 }

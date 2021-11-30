@@ -32,19 +32,19 @@ CPR=${RES}/crispresso
 
 
 
-if [ "${quality_check^^}" == "YES" ]; then
+if [ "${QUALITY_CHECK^^}" == "YES" ]; then
 	
 	printf "\033[1m###################\n"
-	printf "## QUALITY CHECK \n"
+	printf "## QUALITY CHECK ##\n"
 	printf "###################\033[0m \n"
 	echo
 	
 	qualifastqc "${RAW}" ${FQC}
 
-else if [ "${quality_check^^}" == "ONLY" ]; then
+else if [ "${QUALITY_CHECK^^}" == "ONLY" ]; then
 	
 	printf "\033[1m###################\n"
-	printf "## QUALITY CHECK \n"
+	printf "## QUALITY CHECK ##\n"
 	printf "###################\033[0m \n"
 	echo
 	
@@ -58,20 +58,29 @@ fi
 
 
 
+if [ "${RUN_MODE^^}" == "BATCH" ]; then
 
-if [ "${run_mode^^}" == "BATCH" ]; then
-
-	printf "\033[1m######################################## \n"
-	printf "## RUN CRISPResso2 in batch mode \n"
-	printf "########################################\033[0m \n"
+	printf "\033[1m################################### \n"
+	printf "## RUN CRISPResso2 in batch mode ##\n"
+	printf "###################################\033[0m \n"
 	echo
+
+	run_crispresso_batch "${CPR}"
 
 else 
-	printf "\033[1m######################################## \n"
-	printf "## RUN CRISPResso2 \n"
-	printf "########################################\033[0m \n"
+	printf "\033[1m#####################\n"
+	printf "## RUN CRISPResso2 ##\n"
+	printf "#####################\033[0m \n"
 	echo
+	
+	run_crispresso "${CPR}"
 
 fi
 
-
+echo ""
+printf "\033[1m\033[31m############# \n"
+printf "## THE END ##\n"
+printf "#############\033[0m \n"
+echo ""
+date +"%T"
+echo ""
