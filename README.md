@@ -85,7 +85,7 @@ Provide full path to output: /home/user/results
 
 &nbsp;
 
-1) Run CRISPResso2 on samples: normal (one sample at a time) or batch (all samples together; same parameters for all)
+4) Run CRISPResso2 on samples: normal (one sample at a time) or batch (all samples together; same parameters for all)
 > **Note 5:** If running in batch mode (default, but can be changed in parameters file), you don't need to provide values for FASTQR1, FASTQR2 and NAME variables in the parameters file. These are all covered in the file.batch.
 > **Note 6:** there is no need to indicate that you will be running in single-end mode, just don't fill the FASTQR2 variable when running in normal mode or remove the fastq_r2 column in the file.batch in batch mode.
 
