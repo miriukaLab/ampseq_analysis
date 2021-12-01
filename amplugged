@@ -41,7 +41,7 @@ if [ "${QUALITY_CHECK^^}" == "YES" ]; then
 	
 	qualifastqc "${RAW}" ${FQC}
 
-else if [ "${QUALITY_CHECK^^}" == "ONLY" ]; then
+elif [ "${QUALITY_CHECK^^}" == "ONLY" ]; then
 	
 	printf "\033[1m###################\n"
 	printf "## QUALITY CHECK ##\n"

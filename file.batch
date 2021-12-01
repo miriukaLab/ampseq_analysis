@@ -1,1 +1,5 @@
 name    fastq_r1    fastq_r2
+sample1 /home/user/raw_data/sample1_1.fastq.gz /home/user/raw_data/sample1_2.fastq.gz
+sample2 /home/user/raw_data/sample2_1.fastq.gz /home/user/raw_data/sample2_2.fastq.gz
+sample3 /home/user/raw_data/sample3_1.fastq.gz /home/user/raw_data/sample3_2.fastq.gz
+sample4 /home/user/raw_data/sample4_1.fastq.gz /home/user/raw_data/sample4_2.fastq.gz

@@ -10,10 +10,14 @@ function check_files() {
         ### checking fastq extension --> ".gz"
 	    for file in "${1}"/*
 		    do
-			    if [[ "${file}" =~ \.gz$ ]]; then
-				    printf "${file} OK!\n"
-			    else
+			    if [[ "${file}" =~ \.fastq$ ]]; then
 				    gzip "${file}"
+					printf "${file} OK!...compressing...\n"
+			    elif [[ "${file}" =~ \.gz$ ]]; then
+				    printf "${file} OK!\n"
+				else
+					printf "Error!! wrong extension in raw data"
+					exit 1
 			    fi
 		done
     else
@@ -30,8 +34,10 @@ function check_files() {
 function check_dir() {
 	if [ -d "${1}" ]; then
   		printf "${1} OK\n"
+		printf "Creating subdirectories\n"
+  		mkdir -p ${1}/{fastqc,crispresso}
 	else
   		printf "${1} not found. Creating....\n"
-  		mkdir -p ${1}/{multiqc,fastqc,crispresso}
+  		mkdir -p ${1}/{fastqc,crispresso}
 	fi
 }

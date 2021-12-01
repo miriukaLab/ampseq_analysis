@@ -2,10 +2,10 @@
 QUALITY_CHECK="no"  # options: "yes" "only"
 RUN_MODE="batch"  # option: "normal"
 #crispresso parameters
-FASTQR1=""
-FASTQR2=""
-AMP_SEQ="" # reference sequence(s)
-AMP_NAME="Reference" # name of reference sequence(s)
+FASTQR1=""  # read1 (no need if runnning in batch mode)
+FASTQR2=""  # read2 (no need if runnning in batch mode or single-end)
+AMP_SEQ=""  # reference sequence(s)
+AMP_NAME="Reference"  # name of reference sequence(s)
 GUIDE_SEQ=""
 QUANTIF_WD_SIZE=1
 EXPECTED_HDR_AMP_SEQ=""
@@ -14,7 +14,7 @@ HIDE_MUT_OUT_WD_NHEJ=""
 MIN_ID_SCORE=60
 WD_AROUND_SGRNA=3
 #crispresso output parameters
-NAME=""
+NAME="" # read1 (no need if runnning in batch mode)
 SUP_REP="True"
 #crispresso batch parameters
 BATCH_FILE="file.batch"
