@@ -73,7 +73,7 @@ Provide full path to samples: /home/user/raw_data
 Provide full path to output: /home/user/results
 ```
 
-> **Note 2:** if input directory does not exist, the program will return an error and exit. You must run again with correct path. Also, fastq or fastq.gz extension is checked...other extensions will produce error.
+> **Note 2:** if input directory does not exist, the program will return an error and exit. You must run again with correct path. Also, fastq or fastq.gz extensions are checked...other extensions will produce error.
 
 > **Note 3:** if output directory does not exist, the program will create it...so, you just need to provide a path when running the pipeline.
 
