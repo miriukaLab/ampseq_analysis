@@ -3,6 +3,7 @@ Pipeline for read quality check and amplicon seq analysis/visualization based on
 
 * fastqc quality check (alone or integrated with pipeline)
 * CRISPResso2 in normal or batch mode for single or pair-end data
+* Read the whole README file before running (it's not long)
 
 &nbsp;
 
@@ -80,13 +81,13 @@ Provide full path to output: /home/user/results
 &nbsp;
 
 3) Perform (or not) quality check on raw samples with Fastqc
-> **Note 4:** if QUALITY_CHECK is set to "no" (default option), Fastqc will be skipped. On the contrary, if QUALITY_CHECK is set to "yes", Fastqc will be integrated to the rest of the pipeline. Finally, setting the variable to "only" will run Fastqc on smaples and then exit (no CRISPResso).
+> **Note 4:** if QUALITY_CHECK is set to "no" (default option), Fastqc will be skipped. On the contrary, if QUALITY_CHECK is set to "yes", Fastqc will be integrated to the rest of the pipeline. Finally, setting the variable to "only" will run Fastqc on samples and then exit (no CRISPResso).
 
 &nbsp;
 
-4) Run CRISPRessro2 on samples: normal (one sample at a time) or batch (all samples together; same running parameters for all)
+1) Run CRISPResso2 on samples: normal (one sample at a time) or batch (all samples together; same parameters for all)
 > **Note 5:** If running in batch mode (default, but can be changed in parameters file), you don't need to provide values for FASTQR1, FASTQR2 and NAME variables in the parameters file. These are all covered in the file.batch.
-> **Note 6:** there is no need to indicate that you will run in single-end mode, just don't fill the FASTQR2 variable when running in normal mode or remove the fastq_r2 column in the file.batch in batch mode.
+> **Note 6:** there is no need to indicate that you will be running in single-end mode, just don't fill the FASTQR2 variable when running in normal mode or remove the fastq_r2 column in the file.batch in batch mode.
 
 &nbsp;
 
