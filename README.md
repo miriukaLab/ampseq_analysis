@@ -99,3 +99,11 @@ Provide full path to output: /home/user/results
 
 Good luck!
 * **Alejandro La Greca** | <ale.lagreca@gmail.com> | [GitHub](https://github.com/alelagreca) | [twitter](https://twitter.com/aled_lg)
+
+&nbsp;
+
+Software
+
+**Fastqc**: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/ (simon.andrews@babraham.ac.uk)
+
+**CRISPResso2**: https://doi.org/10.1038/s41587-019-0032-3 (https://github.com/pinellolab/CRISPResso2)
