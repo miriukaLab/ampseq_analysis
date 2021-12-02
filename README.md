@@ -32,7 +32,7 @@ $ conda activate ampseq
 Clone or download ampseq_analysis repository to your computer:
 
 ```bash
-# clone using git
+# clone repo using git
 $ git clone https://github.com/miriukaLab/ampseq_analysis.git
 $ cd ampseq_analysis
 $ chmod a+x ampplugged
