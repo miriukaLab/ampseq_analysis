@@ -18,4 +18,4 @@ NAME="" # read1 (no need if runnning in batch mode)
 SUP_REP="True"
 #crispresso batch parameters
 BATCH_FILE="file.batch"
-CORES=4
+CORES=2
