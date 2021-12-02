@@ -1,5 +1,5 @@
 # AMPSEQ_ANALYSIS
-Pipeline for read quality check and amplicon seq analysis/visualization based on Fastqc and CRISPResso2:
+Pipeline for read quality check and amplicon seq analysis/visualization based on **Fastqc** and **CRISPResso2**:
 
 * fastqc quality check (alone or integrated with pipeline)
 * CRISPResso2 in normal or batch mode for single or pair-end data
