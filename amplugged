@@ -12,7 +12,7 @@ echo ""
 ## Importing functions
 source scripts/file_setup
 source scripts/qualityCheck
-source scripts/run_crispresso
+source scripts/run_crispresso2
 source parameters
 
 ## Reading user directives (input/output directories)
