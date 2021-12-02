@@ -51,7 +51,7 @@ $ chmod a+x ampplugged
 
 ## prepare raw data and files
 
-* Place raw data (.fastq or .fastq.gz) in known directory, you will need to provide full path to samples when running the pipeline
+* Place raw data (.fq|.fastq|.fastq.gz) in known directory, you will need to provide full path to samples when running the pipeline
 * Complete "ampseq_analysis/**parameters**" file. Note the double quotes ("") next to the variable names (e.g. FASTQR1=""); you have to fill the variable's value within the quotes, unless it is a number (don't use the quotes here)
 * if running in batch mode, complete the "ampseq_analysis/**file.batch**" as it is indicated in the file, providing the full path to the data file ("$HOME/raw_data/sample1_1.fastq.gz")
 
