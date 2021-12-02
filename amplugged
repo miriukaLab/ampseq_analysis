@@ -49,7 +49,9 @@ elif [ "${QUALITY_CHECK^^}" == "ONLY" ]; then
 	echo
 	
 	qualifastqc "${RAW}" ${FQC}
-	
+	echo
+	printf "Done!"
+	date +"%T"
 	exit 1
 
 else

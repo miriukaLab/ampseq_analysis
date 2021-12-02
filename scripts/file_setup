@@ -6,17 +6,18 @@
 
 function check_files() {
     if [ -d "${1}" ]; then
-        printf "${1} OK\n"
+        printf "${1} \033[1m\033[31m OK \033[0m\n"
         ### checking fastq extension --> ".gz"
-	    for file in "${1}"/*
+	    shopt -s nullglob
+		for file in "${1}"/*.{fq,fastq,fastq.gz}
 		    do
-			    if [[ "${file}" =~ \.fastq$ ]]; then
+			    if [[ "${file}" =~ \.fastq$ ]] || [[ "${file}" =~ \.fq$ ]]; then
 				    gzip "${file}"
 					printf "${file} OK!...compressing...\n"
 			    elif [[ "${file}" =~ \.gz$ ]]; then
 				    printf "${file} OK!\n"
 				else
-					printf "Error!! wrong extension in raw data"
+					printf "Error!! wrong extension in raw data\n"
 					exit 1
 			    fi
 		done

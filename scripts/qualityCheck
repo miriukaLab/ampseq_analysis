@@ -12,7 +12,7 @@ function qualifastqc() {
     done
 
     # Producing merged report
-    multiqc -p -ip "${2}"
+    multiqc -p -ip "${2}" -o "${2}"
 }
 
 

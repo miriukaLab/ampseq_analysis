@@ -1,5 +1,5 @@
 #general parameters
-QUALITY_CHECK="no"  # options: "yes" "only"
+QUALITY_CHECK="only"  # options: "yes" "only"
 RUN_MODE="batch"  # option: "normal"
 #crispresso parameters
 FASTQR1=""  # read1 (no need if runnning in batch mode)
