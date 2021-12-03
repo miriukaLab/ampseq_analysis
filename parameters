@@ -1,21 +1,19 @@
 #general parameters
-QUALITY_CHECK="only"  # options: "yes" "only"
-RUN_MODE="batch"  # option: "normal"
+QUALITY_CHECK="no"  # options: "yes" "no" "only"
+RUN_MODE="batch"  # option: "normal" "batch"
 #crispresso parameters
-FASTQR1=""  # read1 (no need if runnning in batch mode)
-FASTQR2=""  # read2 (no need if runnning in batch mode or single-end)
-AMP_SEQ=""  # reference sequence(s)
-AMP_NAME="Reference"  # name of reference sequence(s)
-GUIDE_SEQ=""
+FASTQR1="/home/lian/Desktop/raw_data/D21AS989-G1_2ug_R1.fastq.gz"  # read1 (no need if runnning in batch mode)
+FASTQR2="/home/lian/Desktop/raw_data/D21AS989-G1_2ug_R2.fastq.gz"  # read2 (no need if runnning in batch mode or single-end)
+AMP_SEQ="ggggcaaacttctcgtcatctgattcagagaaacggacatgttgggtaatagtcccagagtaattagtcctcagcaaagttgaaatttgatttatgccccctttaaactttatttctctcatgtgcaggctggcacaactgccacttatgaaggtcgctggggaagaggaacagcacagtacagctcccagaagtccgtggaagaaaggtccttgaggcatcctctgaggagactggagatttctcctgacagcagcccggagagggctcactacacgcacagcgatt"  # reference sequence(s)
+AMP_NAME=Reference  # name of reference sequence(s)
+GUIDE_SEQ="CCGTGGAAGAAAGGTCCTTG"
 QUANTIF_WD_SIZE=1
-EXPECTED_HDR_AMP_SEQ=""
-HDR_PERFECT_ALN_THR=99.5
-HIDE_MUT_OUT_WD_NHEJ=""
+EXPECTED_HDR_AMP_SEQ="ggggcaaacttctcgtcatctgattcagagaaacggacatgttgggtaatagtcccagagtaattagtcctcagcaaagttgaaatttgatttatgccccctttaaactttatttctctcatgtgcaggctggcacaactgccacttatgaaggtcgctggggaagaggaacagcacagtacagctcccagaagtccgtggaagaaaggttcttgaggcatcctctgaggagactggagatttctcctgacagcagcccggagagggctcactacacgcacagcgatt"
 MIN_ID_SCORE=60
 WD_AROUND_SGRNA=3
 #crispresso output parameters
-NAME="" # read1 (no need if runnning in batch mode)
-SUP_REP="True"
+NAME="guide1_2ug" # no need if runnning in batch mode
 #crispresso batch parameters
-BATCH_FILE="file.batch"
+BATCH_FILE=file.batch
 CORES=$(($(nproc) / 2))
+

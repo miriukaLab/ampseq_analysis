@@ -13,13 +13,11 @@ function run_crispresso_batch() {
                     --amplicon_name "${AMP_NAME}"\
                     --guide_seq "${GUIDE_SEQ}"\
                     --quantification_window_size "${QUANTIF_WD_SIZE}"\
-                    --expected_hdr_amplicon_sequence "${EXPECTED_HDR_AMP_SEQ}"\
-                    --hdr_perfect_alignment_score "${HDR_PERFECT_ALN_THR}"\
-                    --hide_mutation_output_window_NHEJ "${HIDE_MUT_OUT_WD_NHEJ}"\
+                    --expected_hdr_amplicon_seq "${EXPECTED_HDR_AMP_SEQ}"\
                     --min_identity_score "${MIN_ID_SCORE}"\
                     --window_around_sgrna "${WD_AROUND_SGRNA}"\
-                    --suppress_report "${SUP_REP}"\
-                    --output_folder "${1}"
+                    --batch_output_folder "${1}"\
+                    --skip_failed
 
 }
 
@@ -34,15 +32,12 @@ function run_crispresso() {
                 --amplicon_name "${AMP_NAME}"\
                 --guide_seq "${GUIDE_SEQ}"\
                 --quantification_window_size "${QUANTIF_WD_SIZE}"\
-                --expected_hdr_amplicon_sequence "${EXPECTED_HDR_AMP_SEQ}"\
-                --hdr_perfect_alignment_score "${HDR_PERFECT_ALN_THR}"\
-                --hide_mutation_output_window_NHEJ "${HIDE_MUT_OUT_WD_NHEJ}"\
+                --expected_hdr_amplicon_seq "${EXPECTED_HDR_AMP_SEQ}"\
                 --min_identity_score "${MIN_ID_SCORE}"\
                 --window_around_sgrna "${WD_AROUND_SGRNA}"\
-                --suppress_report "${SUP_REP}"\
                 --name "${NAME}"\
                 --output_folder "${1}"
-    
+                
     else
 
         printf "Running CRISPResso2 for single-end reads"
@@ -52,12 +47,10 @@ function run_crispresso() {
                 --amplicon_name "${AMP_NAME}"\
                 --guide_seq "${GUIDE_SEQ}"\
                 --quantification_window_size "${QUANTIF_WD_SIZE}"\
-                --expected_hdr_amplicon_sequence "${EXPECTED_HDR_AMP_SEQ}"\
-                --hdr_perfect_alignment_score "${HDR_PERFECT_ALN_THR}"\
-                --hide_mutation_output_window_NHEJ "${HIDE_MUT_OUT_WD_NHEJ}"\
+                --expected_hdr_amplicon_seq "${EXPECTED_HDR_AMP_SEQ}"\
                 --min_identity_score "${MIN_ID_SCORE}"\
                 --window_around_sgrna "${WD_AROUND_SGRNA}"\
-                --suppress_report "${SUP_REP}"\
+                --suppress_report \
                 --name "${NAME}"\
                 --output_folder "${1}"
         
