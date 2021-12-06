@@ -1,7 +1,7 @@
 #general parameters
 RAW_DATA="/home/lian/Desktop/raw_data"
 OUT_DIR="/home/lian/Desktop/ampseq_results_v1"
-QUALITY_CHECK="no"  # options: "yes" "no" "only"
+QUALITY_CHECK="yes"  # options: "yes" "no" "only"
 RUN_MODE="batch"  # option: "normal" "batch"
 #crispresso parameters
 FASTQR1="/home/lian/Desktop/raw_data/D21AS989-G1_2ug_R1.fastq.gz"  # read1 (no need if runnning in batch mode)
