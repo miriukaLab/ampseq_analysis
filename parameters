@@ -1,6 +1,6 @@
 #general parameters
 RAW_DATA="/home/lian/Desktop/raw_data"
-OUT_DIR="/home/lian/Desktop/ampseq_results_v1"
+OUT_DIR="/home/lian/Desktop/ampseq_results"
 QUALITY_CHECK="yes"  # options: "yes" "no" "only"
 RUN_MODE="batch"  # option: "normal" "batch"
 #crispresso parameters
