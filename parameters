@@ -1,4 +1,6 @@
 #general parameters
+RAW_DATA="/home/lian/Desktop/raw_data"
+OUT_DIR="/home/lian/Desktop/ampseq_results_v1"
 QUALITY_CHECK="no"  # options: "yes" "no" "only"
 RUN_MODE="batch"  # option: "normal" "batch"
 #crispresso parameters
@@ -14,6 +16,6 @@ WD_AROUND_SGRNA=3
 #crispresso output parameters
 NAME="guide1_2ug" # no need if runnning in batch mode
 #crispresso batch parameters
-BATCH_FILE=file.batch
+BATCH_FILE=batch.batch
 CORES=$(($(nproc) / 2))
 

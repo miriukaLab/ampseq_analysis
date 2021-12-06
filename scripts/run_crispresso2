@@ -50,7 +50,6 @@ function run_crispresso() {
                 --expected_hdr_amplicon_seq "${EXPECTED_HDR_AMP_SEQ}"\
                 --min_identity_score "${MIN_ID_SCORE}"\
                 --window_around_sgrna "${WD_AROUND_SGRNA}"\
-                --suppress_report \
                 --name "${NAME}"\
                 --output_folder "${1}"
         

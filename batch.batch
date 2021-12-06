@@ -1,0 +1,4 @@
+name	fastq_r1	fastq_r2
+sample1	/home/lian/Desktop/raw_data/D21AS989-G1_2ug_R1.fastq.gz	/home/lian/Desktop/raw_data/D21AS989-G1_2ug_R2.fastq.gz
+sample2	/home/lian/Desktop/raw_data/D21AS990-G1_5ug_R1.fastq.gz	/home/lian/Desktop/raw_data/D21AS990-G1_5ug_R2.fastq.gz
+
