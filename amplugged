@@ -24,8 +24,8 @@ check_dir "${OUT_DIR}"
 ### Set variables ###
 FQC="${OUT_DIR}"/fastqc
 CPR="${OUT_DIR}"/crispresso
-QC=$(echo "${QUALITY_CHECK}" | tr '[:lower:]' '[:upper:]')
-RM=$(echo "${RUN_MODE}" | tr '[:lower:]' '[:upper:]')
+QC=$(echo "${QUALITY_CHECK}" | tr '[:lower:]' '[:upper:]') # for portability to mac terminal
+RM=$(echo "${RUN_MODE}" | tr '[:lower:]' '[:upper:]') # for portability to mac terminal
 #####################
 
 
