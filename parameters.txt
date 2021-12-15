@@ -16,6 +16,6 @@ WD_AROUND_SGRNA=3
 #crispresso output parameters
 NAME="guide1_2ug" # no need if runnning in batch mode
 #crispresso batch parameters
-BATCH_FILE=batch.batch
-CORES=$(($(nproc) / 2))
+BATCH_FILE=batch.txt
+CORES=2
 

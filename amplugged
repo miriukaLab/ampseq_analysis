@@ -14,7 +14,7 @@ echo ""
 source scripts/file_setup
 source scripts/qualityCheck
 source scripts/run_crispresso2
-source parameters
+source parameters.txt
 
 ## Checking user directives (input/output directories and files)
 check_files "${RAW_DATA}"
@@ -24,11 +24,13 @@ check_dir "${OUT_DIR}"
 ### Set variables ###
 FQC="${OUT_DIR}"/fastqc
 CPR="${OUT_DIR}"/crispresso
+QC=$(echo "${QUALITY_CHECK}" | tr '[:lower:]' '[:upper:]')
+RM=$(echo "${RUN_MODE}" | tr '[:lower:]' '[:upper:]')
 #####################
 
 
 
-if [ "${QUALITY_CHECK^^}" == "YES" ]; then
+if [ "${QC}" == "YES" ]; then
 	
 	printf "\033[1m###################\n"
 	printf "## QUALITY CHECK ##\n"
@@ -37,7 +39,7 @@ if [ "${QUALITY_CHECK^^}" == "YES" ]; then
 	
 	qualifastqc "${RAW_DATA}" "${FQC}"
 
-elif [ "${QUALITY_CHECK^^}" == "ONLY" ]; then
+elif [ "${QC}" == "ONLY" ]; then
 	
 	printf "\033[1m###################\n"
 	printf "## QUALITY CHECK ##\n"
@@ -57,7 +59,7 @@ fi
 
 
 
-if [ "${RUN_MODE^^}" == "BATCH" ]; then
+if [ "${RM}" == "BATCH" ]; then
 
 	printf "\033[1m################################### \n"
 	printf "## RUN CRISPResso2 in batch mode ##\n"
