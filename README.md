@@ -35,7 +35,7 @@ Clone or download ampseq_analysis repository to your computer:
 # clone repo using git
 $ git clone https://github.com/miriukaLab/ampseq_analysis.git
 $ cd ampseq_analysis
-$ chmod a+x ampplugged
+$ chmod a+x amplugged
 ```
 
 ```bash
@@ -44,7 +44,7 @@ $ curl -L https://github.com/miriukaLab/ampseq_analysis/archive/refs/heads/main.
 $ unzip ampseq_analysis.zip
 $ rm ampseq_analysis.zip
 $ cd ampseq_analysis
-$ chmod a+x ampplugged
+$ chmod a+x amplugged
 ```
 
 &nbsp;
