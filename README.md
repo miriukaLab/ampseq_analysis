@@ -29,7 +29,7 @@ $ conda activate ampseq
 &nbsp;
 
 ## get ampseq_analysis 
-Clone or download ampseq_analysis repository to your computer:
+Clone OR download ampseq_analysis repository to your computer:
 
 ```bash
 # clone repo using git
@@ -39,7 +39,7 @@ $ chmod a+x amplugged
 ```
 
 ```bash
-# download zip to your local devide (curl works on mac too)
+# download zip to your local device
 $ curl -L https://github.com/miriukaLab/ampseq_analysis/archive/refs/heads/main.zip -o ampseq_analysis.zip
 $ unzip ampseq_analysis.zip
 $ rm ampseq_analysis.zip
@@ -52,13 +52,13 @@ $ chmod a+x amplugged
 ## prepare raw data and files
 
 * Place raw data (.fq|.fastq|.fastq.gz) in known directory, you will need to provide full path to samples when running the pipeline
-* Complete "ampseq_analysis/**parameters**" file. Note the double quotes ("") next to the variable names (e.g. FASTQR1=""); you have to fill the variable's value within the quotes, unless it is a number (don't use the quotes here)
-* if running in batch mode, complete the "ampseq_analysis/**file.batch**" as it is indicated in the file, providing the full path to the data file ("$HOME/raw_data/sample1_1.fastq.gz")
+* Complete "ampseq_analysis/**parameters.txt**" file. Note the double quotes ("") next to the variable names (e.g. FASTQR1=""); you have to fill the variable's value within the quotes, unless it is a number (don't use the quotes here)
+* if running in batch mode, complete the "ampseq_analysis/**batch.txt**" as it is indicated in the file, providing the full path to the data file ("$HOME/raw_data/sample1_1.fastq.gz")
 
 &nbsp;
 
 # run pipeline (walkthrough)
-1) amplugged is run through bash terminal
+1) amplugged runs through bash terminal (remember to complete the parameters file)
 
 ```bash
 # enter ampseq directory
@@ -68,29 +68,38 @@ $ cd ampseq_analysis
 $ ./amplugged
 ```
 
-Running the command above wil prompt two requests that you need to resolve to move forward.
+Running the command above wil start program.
 
 &nbsp;
 
-2) provide input/output information
+2) input/output information
 
 ```bash
 $ ./amplugged
-# provide full path to samples (see Note 2)
-Provide full path to samples: /home/user/raw_data
+# if path to raw_data is wrong, an error will be raised and a new directory will be requested (see Note 2 below)
+Error: "$HOME/Desktop/wrong_path" not found. Cannot continue.
+Please, provide raw data directory here: $HOME/Desktop/raw_data
 
-# provide full path to output directory (see Note 3)
-Provide full path to output: /home/user/results
+$HOME/Desktop/raw_data  OK
+$HOME/Desktop/raw_data/sample1_1.fastq.gz OK
+$HOME/Desktop/raw_data/sample1_2.fastq.gz OK
+$HOME/Desktop/raw_data/sample2_1.fastq.gz OK
+$HOME/Desktop/raw_data/sample2_2.fastq.gz OK
+
+# path to output directory is checked (see Note 3 below)
+"$HOME/Desktop/new_dir_output" not found. Creating....
+
+
 ```
 
-> **Note 2:** if input directory does not exist, the program will return an error and exit. You must run again with correct path. Also, fastq or fastq.gz extensions are checked...other extensions will produce error.
+> **Note 2:** if input directory exists, but samples have unknown extension (other than fq, fastq or fastq.gz), the program will exit. Check extensions and run again.
 
-> **Note 3:** if output directory does not exist, the program will create it...so, you just need to provide a path when running the pipeline.
+> **Note 3:** if output directory does not exist, the program will create it...so, you just need to provide the path in the parameters file.
 
 &nbsp;
 
 3) Perform (or not) quality check on raw samples with Fastqc
-> **Note 4:** if QUALITY_CHECK is set to "no" (default option), Fastqc will be skipped. On the contrary, if QUALITY_CHECK is set to "yes", Fastqc will be integrated to the rest of the pipeline. Finally, setting the variable to "only" will run Fastqc on samples and then exit (no CRISPResso).
+> **Note 4:** if QUALITY_CHECK is set to "no", Fastqc will be skipped. On the contrary, if QUALITY_CHECK is set to "yes", Fastqc will be integrated to the rest of the pipeline. Finally, setting the variable to "only" will run Fastqc on samples and then exit (no CRISPResso).
 
 &nbsp;
 
