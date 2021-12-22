@@ -1,11 +1,11 @@
 #general parameters
-RAW_DATA="/home/lian/Desktop/raw_data"
-OUT_DIR="/home/lian/Desktop/ampseq_results"
+RAW_DATA="$HOME/Desktop/raw_data"
+OUT_DIR="$HOME/Desktop/ampseq_results"
 QUALITY_CHECK="yes"  # options: "yes" "no" "only"
 RUN_MODE="batch"  # option: "normal" "batch"
 #crispresso parameters
-FASTQR1="/home/lian/Desktop/raw_data/D21AS989-G1_2ug_R1.fastq.gz"  # read1 (no need if runnning in batch mode)
-FASTQR2="/home/lian/Desktop/raw_data/D21AS989-G1_2ug_R2.fastq.gz"  # read2 (no need if runnning in batch mode or single-end)
+FASTQR1="$HOME/Desktop/raw_data/D21AS989-G1_2ug_R1.fastq.gz"  # read1 (no need if runnning in batch mode)
+FASTQR2="$HOME/Desktop/raw_data/D21AS989-G1_2ug_R2.fastq.gz"  # read2 (no need if runnning in batch mode or single-end)
 AMP_SEQ="ggggcaaacttctcgtcatctgattcagagaaacggacatgttgggtaatagtcccagagtaattagtcctcagcaaagttgaaatttgatttatgccccctttaaactttatttctctcatgtgcaggctggcacaactgccacttatgaaggtcgctggggaagaggaacagcacagtacagctcccagaagtccgtggaagaaaggtccttgaggcatcctctgaggagactggagatttctcctgacagcagcccggagagggctcactacacgcacagcgatt"  # reference sequence(s)
 AMP_NAME=Reference  # name of reference sequence(s)
 GUIDE_SEQ="CCGTGGAAGAAAGGTCCTTG"
