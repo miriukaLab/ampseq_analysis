@@ -21,8 +21,6 @@ for script in scripts/*; do source "${script}"; done
 
 ## Checking user directives (input/output directories and files)
 check_files "${RAW_DATA}"
-RAW_DATA="${DATA}"
-
 check_outdir "${OUT_DIR}"
 
 
