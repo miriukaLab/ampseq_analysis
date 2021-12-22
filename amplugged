@@ -10,15 +10,20 @@ echo ""
 date +"%T"
 echo ""
 
-## Importing functions
-source scripts/file_setup
-source scripts/qualityCheck
-source scripts/run_crispresso2
+
+## Importing user defined parameters
 source parameters.txt
+
+
+## Importing functions
+for script in scripts/*; do source "${script}"; done
+
 
 ## Checking user directives (input/output directories and files)
 check_files "${RAW_DATA}"
-check_dir "${OUT_DIR}"
+RAW_DATA="${DATA}"
+
+check_outdir "${OUT_DIR}"
 
 
 ### Set variables ###
@@ -37,6 +42,8 @@ if [ "${QC}" == "YES" ]; then
 	printf "###################\033[0m \n"
 	echo
 	
+  	mkdir -p "${OUT_DIR}"/{fastqc,crispresso}
+
 	qualifastqc "${RAW_DATA}" "${FQC}"
 
 elif [ "${QC}" == "ONLY" ]; then
@@ -46,7 +53,10 @@ elif [ "${QC}" == "ONLY" ]; then
 	printf "###################\033[0m \n"
 	echo
 	
+  	mkdir -p "${OUT_DIR}"/fastqc
+
 	qualifastqc "${RAW_DATA}" "${FQC}"
+
 	echo
 	printf "Done!\n"
 	date +"%T"
@@ -55,6 +65,7 @@ elif [ "${QC}" == "ONLY" ]; then
 else
 	echo
 	printf "\033[1m\033[35mNOTE: Initial quality check will not be performed\033[0m\n"
+	mkdir -p "${OUT_DIR}"/crispresso
 fi
 
 
