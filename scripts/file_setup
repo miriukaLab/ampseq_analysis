@@ -4,7 +4,7 @@
 ##Check if files exists and their extension
 ## usage: provide input directory
 
-function check_files() {
+check_files() {
 	RAW_DATA="${1}"
 	while true; do
 		if [ -d "${RAW_DATA}" ]; then
@@ -39,7 +39,7 @@ function check_files() {
 ##Check if destination exists, otherwise it creates it
 ## usage: provide directory to check
 
-function check_outdir() {
+check_outdir() {
 	if [ -d "${1}" ]; then
 		echo
   		printf "${1} OK\n"

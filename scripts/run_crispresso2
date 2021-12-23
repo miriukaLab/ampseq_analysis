@@ -6,8 +6,7 @@
 
 
 # crispresso2 in batch mode
-function run_crispresso_batch() {
-    
+run_crispresso_batch() {
     CRISPRessoBatch --batch_settings "${BATCH_FILE}" -p "${CORES}"\
                     --amplicon_seq "${AMP_SEQ}"\
                     --amplicon_name "${AMP_NAME}"\
@@ -18,11 +17,10 @@ function run_crispresso_batch() {
                     --window_around_sgrna "${WD_AROUND_SGRNA}"\
                     --batch_output_folder "${1}"\
                     --skip_failed
-
 }
 
 # crispresso2 in normal mode
-function run_crispresso() {
+run_crispresso() {
     if [ -n "${FASTQR2}" ]; then
         
         printf "Running CRISPResso2 for pair-end reads"

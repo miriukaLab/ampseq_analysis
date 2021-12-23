@@ -4,7 +4,7 @@
 ##FastQC quality check of raw sequencing reads
 ## usage: provide input and output directory to function
 
-function qualifastqc() {
+qualifastqc() {
     for i in "${1}"/*.fastq.gz
         do
             printf "\nRunning FastQC to "${1}"\n"
