@@ -1,22 +1,15 @@
 #!/bin/bash
 
-echo ""
-printf "\033[1m\033[36m####################################### \n"
-printf "## AMPLICON SEQUENCING FULL PIPELINE ##\n"
-printf "##  based on FASTQC and CRISPResso2  ##\n"
-printf "#######################################\033[0m \n"
-echo -e "\nAuthor: Alejandro La Greca PhD"
-echo ""
-date +"%T"
-echo ""
-
-
 ## Importing user defined parameters
 source parameters.txt
 
 
 ## Importing functions
 for script in scripts/*; do source "${script}"; done
+
+
+# Title banner
+title_banner "AMPLICON SEQUENCING PIPELINE" "based on FASTQC and CRISPResso2" "Alejandro La Greca PhD"
 
 
 ## Checking user directives (input/output directories and files)
@@ -35,11 +28,7 @@ RM=$(echo "${RUN_MODE}" | tr '[:lower:]' '[:upper:]') # for portability to mac t
 
 if [ "${QC}" == "YES" ]; then
 
-	echo
-	printf "\033[1m###################\n"
-	printf "## QUALITY CHECK ##\n"
-	printf "###################\033[0m \n"
-	echo
+	subtitle_banner "QUALITY CHECK"
 	
   	mkdir -p "${OUT_DIR}"/{fastqc,crispresso}
 
@@ -47,11 +36,7 @@ if [ "${QC}" == "YES" ]; then
 
 elif [ "${QC}" == "ONLY" ]; then
 
-	echo
-	printf "\033[1m###################\n"
-	printf "## QUALITY CHECK ##\n"
-	printf "###################\033[0m \n"
-	echo
+	subtitle_banner "QUALITY CHECK"
 	
   	mkdir -p "${OUT_DIR}"/fastqc
 
@@ -72,27 +57,17 @@ fi
 
 if [ "${RM}" == "BATCH" ]; then
 
-	printf "\033[1m################################### \n"
-	printf "## RUN CRISPResso2 in batch mode ##\n"
-	printf "###################################\033[0m \n"
-	echo
+	subtitle_banner "RUN CRISPResso2 in batch mode "
 
 	run_crispresso_batch "${CPR}"
 
 else 
-	printf "\033[1m#####################\n"
-	printf "## RUN CRISPResso2 ##\n"
-	printf "#####################\033[0m \n"
-	echo
+	subtitle_banner "RUN CRISPResso2 "
 	
 	run_crispresso "${CPR}"
 
 fi
 
-echo ""
-printf "\033[1m############# \n"
-printf "\033[1;30;107m## THE END ##\033[0m\n"
-printf "\033[1m#############\033[0m \n"
-echo ""
-date +"%T"
-echo ""
+
+# End banner
+end_banner "THE END"
