@@ -77,6 +77,7 @@ check_files() {
 	done
 }
 
+export -f check_files
 
 ##Check if destination exists, otherwise it creates it
 ## usage: provide directory to check
@@ -84,7 +85,7 @@ check_files() {
 check_outdir() {
 	if [ -d "${1}" ]; then
 		echo
-  		printf "${1} OK\n"
+  		printf "${1} Output directory exists. Reusing...\n"
 	else
 		echo
   		printf "${1} not found. Creating....\n"
@@ -92,7 +93,7 @@ check_outdir() {
 	fi
 }
 
-
+export -f check_outdir
 
 ##FastQC quality check of raw sequencing reads
 ## usage: provide input and output directory to function
@@ -108,6 +109,7 @@ qualifastqc() {
     multiqc -p -ip "${2}" -o "${2}"
 }
 
+export -f qualifastqc
 
 
 # crispresso2 in batch mode
@@ -123,6 +125,9 @@ run_crispresso_batch() {
                     --batch_output_folder "${1}"\
                     --skip_failed
 }
+
+export -f run_crispresso_batch
+
 
 # crispresso2 in normal mode
 run_crispresso() {
@@ -158,3 +163,5 @@ run_crispresso() {
         
     fi
 }
+
+export -f run_crispresso

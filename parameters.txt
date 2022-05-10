@@ -1,7 +1,7 @@
 #####general parameters
 RAW_DATA="$HOME/Desktop/raw_data"
 OUT_DIR="$HOME/Desktop/ampseq_results"
-QUALITY_CHECK="yes"  # options: "yes" "no" "only"
+QUALITY_CHECK="no"  # options: "yes" "no" "only"
 RUN_MODE="batch"  # option: "normal" "batch"
 #####crispresso parameters
 FASTQR1="$HOME/Desktop/raw_data/sample1_R1.fastq.gz"  # read1 (no need if runnning in batch mode)
@@ -17,5 +17,5 @@ WD_AROUND_SGRNA=3
 NAME="guide1" # no need if runnning in batch mode
 #####crispresso batch parameters
 BATCH_FILE=batch.txt
-CORES=2
+CORES=4
 

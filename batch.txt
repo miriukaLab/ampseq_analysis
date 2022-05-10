@@ -1,4 +1,4 @@
 name	fastq_r1	fastq_r2
-guide1	$HOME/Desktop/raw_data/sample1_R1.fastq.gz	$HOME/Desktop/raw_data/sample1_R2.fastq.gz
-guide2	$HOME/Desktop/raw_data/sample2_R1.fastq.gz	$HOME/Desktop/raw_data/sample2_R2.fastq.gz
+guide1	/home/lian/Desktop/raw_data/D21AS990-G1_5ug_R1.fastq.gz	/home/lian/Desktop/raw_data/D21AS990-G1_5ug_R2.fastq.gz
+guide2	/home/lian/Desktop/raw_data/D21AS992-G2_5ug_R1.fastq.gz	/home/lian/Desktop/raw_data/D21AS992-G2_5ug_R2.fastq.gz
 

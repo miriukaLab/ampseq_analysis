@@ -3,7 +3,7 @@
 ## Importing user defined parameters, env vars and functions
 set -a
 source $(pwd)/parameters.txt
-for script in $(pwd)/scripts/*; do source $(pwd)/scripts/${script}; done
+for script in $(pwd)/scripts/*; do source ${script}; done
 
 
 # Title banner
