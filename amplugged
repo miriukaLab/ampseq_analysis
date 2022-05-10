@@ -1,11 +1,9 @@
 #!/bin/bash
 
-## Importing user defined parameters
-source parameters.txt
-
-
-## Importing functions
-for script in scripts/*; do source "${script}"; done
+## Importing user defined parameters, env vars and functions
+set -a
+source $(pwd)/parameters.txt
+for script in $(pwd)/scripts/*; do source $(pwd)/scripts/${script}; done
 
 
 # Title banner
@@ -17,12 +15,7 @@ check_files "${RAW_DATA}"
 check_outdir "${OUT_DIR}"
 
 
-### Set variables ###
-FQC="${OUT_DIR}"/fastqc
-CPR="${OUT_DIR}"/crispresso
-QC=$(echo "${QUALITY_CHECK}" | tr '[:lower:]' '[:upper:]') # for portability to mac terminal
-RM=$(echo "${RUN_MODE}" | tr '[:lower:]' '[:upper:]') # for portability to mac terminal
-#####################
+
 
 
 
